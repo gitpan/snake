@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 
-# $Id: snake-consts.pl,v 1.17 1999/02/02 18:55:49 root Exp $
+# $Id: snake-consts.pl,v 1.19 1999/08/08 15:50:14 root Exp root $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
-# May be used/distributed under the same terms as Perl.
+# May be used/distributed under the GPL.
 
 use strict ;
 
@@ -20,7 +20,7 @@ if( $^O =~ /win32/i ) {
 }
 else {
     $Const{OPTS_FILE} = ( $ENV{HOME} or $ENV{LOGDIR} or (getpwuid( $> ))[7]) 
-                         . '/.games/snake-opts' ;
+                         . '/.games/snakerc' ;
 }
 
 $Const{BUTTON_WIDTH}                =   10 ;

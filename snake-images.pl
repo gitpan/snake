@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 
-# $Id: snake-images.pl,v 1.8 1999/01/01 12:56:38 root Exp $
+# $Id: snake-images.pl,v 1.9 1999/08/08 15:50:14 root Exp root $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
-# May be used/distributed under the same terms as Perl.
+# May be used/distributed under the GPL.
 
 use strict ;
 

@@ -28,7 +28,6 @@ The game was developed under Debian GNU/Linux 2.0.
 
 3. FILES
 
-RCS
 README
 Tk/MesgBox.pm
 debian-menu
@@ -52,7 +51,7 @@ snake-options.pl
 snake-opts.pl
 
 Snake will create a directory in your home directory called '.games' and a
-file in that directory called 'snake-opts'. For Win32 it will create a file
+file in that directory called 'snakerc'. For Win32 it will create a file
 called 'SNAKE.INI' in the directory from which it is invoked.
 
 
@@ -84,6 +83,10 @@ cd snake
 # Make sure snake is executable.
 chmod a+x snake
 
+# If this is an upgrade from a previous version and you're not using Win32
+# then keep your options.
+mv ~/.games/snake-opts ~/.games/snakerc
+
 # If you want snake to appear on your X menu do the following:
 cp debian-menu /etc/menu/snake
 update-menus
@@ -114,12 +117,17 @@ update-menus
 
 1999/04/21  Added MesgBox.pm to .tar.gz.
 
+1999/08/07  Minor fixes for Win32. Also Linux options file has been renamed
+            .snakerc to be more conventional.
+
+1999/08/08  Changed licence to GPL.
+
 6. COPYRIGHT
 
 Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
-Snake may be used/distributed under the same terms as Perl.
+Snake may be used/distributed under the GPL.
 
-Contact: <mark.summerfield@chest.ac.uk> - please include 'snake' in the
+Contact: <summer@chest.ac.uk> - please include 'snake' in the
 subject line. 
 
 

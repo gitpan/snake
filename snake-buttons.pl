@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 
-# $Id: snake-buttons.pl,v 1.9 1999/01/16 23:53:10 root Exp $
+# $Id: snake-buttons.pl,v 1.10 1999/08/08 15:50:14 root Exp root $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
-# May be used/distributed under the same terms as Perl.
+# May be used/distributed under the GPL.
 
 use strict ;
 

@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 
-# $Id: snake-button-commands.pl,v 1.24 1999/02/23 22:02:13 root Exp $
+# $Id: snake-button-commands.pl,v 1.26 1999/08/08 15:50:14 root Exp root $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
-# May be used/distributed under the same terms as Perl.
+# May be used/distributed under the GPL.
 
 use strict ;
 
@@ -132,10 +132,12 @@ sub about {
     my $text = <<__EOT__ ;
 Snake v $VERSION
 
+summer\@chest.ac.uk
+
 Copyright (c) Mark Summerfield 1998/9. 
 All Rights Reserved.
 
-May be used/distributed under the same terms as Perl.
+May be used/distributed under the GPL.
 __EOT__
 
     my $msg = $Win->MesgBox(

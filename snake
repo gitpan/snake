@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 
-# $Id: snake,v 1.40 1999/04/21 18:57:50 root Exp root $
+# $Id: snake,v 1.42 1999/08/08 15:50:14 root Exp root $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
-# May be used/distributed under the same terms as Perl.
+# May be used/distributed under the GPL.
 
 # TODO Fix the numerous detail bugs in the use interface...
 # TODO Tie $Status so that we can set $Board{STATUS} (the status bar)
@@ -24,7 +24,7 @@ use vars qw( $VERSION
              $Win 
              %Buttons %Images %Board %Snake ) ; 
 
-$VERSION = '1.07' ; # Application version.
+$VERSION = '1.10' ; # Application version.
 
 my $DieOnWarn      = 1 ;
 my $WarnInDialogue = 0 ;
@@ -115,7 +115,7 @@ sub write_opts {
 
     # Create the games directory if it doesn't exist.
     $Const{OPTS_FILE} =~ m{^(.*)/} ;
-    mkdir $1, 0666 unless -e $1 ;
+    mkdir $1, 0666 if defined $1 and not -e $1 ;
 
     if( open( OUT, ">$Const{OPTS_FILE}" ) ) {
         local $_ ;
@@ -195,6 +195,6 @@ Win32
 
 =pod LICENSE
 
-Same as Perl
+GPL.
 
 =cut

@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
 
-# $Id: snake-help.pl,v 1.17 1999/03/18 21:39:26 root Exp $
+# $Id: snake-help.pl,v 1.19 1999/08/08 15:50:14 root Exp root $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
-# May be used/distributed under the same terms as Perl.
+# May be used/distributed under the GPL.
 
 use strict ;
 
@@ -110,9 +110,9 @@ sub help {
     ) ;
 
     &heading( "\nCopyright\n\n" ) ;
-    &code( "snake v $main::VERSION.\n\n" ) ;
+    &code( "snake v $main::VERSION.\t\tsummer\@chest.ac.uk\n\n" ) ;
     &body( "Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.\n" ) ;
-    &body( "Snake may be used/distributed under the same terms as Perl.\n" ) ;
+    &body( "Snake may be used/distributed under the GPL.\n" ) ;
     &body( "\nI do not know who the inventor of Snake is." ) ;
 
     $text->configure( -state => 'disabled' ) ;
