@@ -22,6 +22,7 @@ sub help {
     $HelpWin->bind( '<q>',         \&close ) ;
     $HelpWin->bind( '<Alt-q>',     \&close ) ;
     $HelpWin->bind( '<Control-q>', \&close ) ;
+    $HelpWin->bind( '<Escape>',    \&close ) ;
 
     # Set up the text widget.
     $TextBox = $HelpWin->Scrolled( 'Text', 
@@ -31,6 +32,9 @@ sub help {
                     -width      => 80, 
                     -height     => 40,
                     )->pack( -fill => 'both', -expand => 'y' ) ;
+    my $text = $TextBox->Subwidget( 'text' ) ;
+    $text->configure( -takefocus => 1 ) ;
+    $text->focus ;
 
     &text_tags ;
 
@@ -39,19 +43,15 @@ sub help {
     &title( "Snake Help\n" ) ;
 
     &body( "\n(Press " ) ;
+    &code( "<Escape>" ) ;
+    &body( " or " ) ;
     &code( "q" ) ;
     &body( " to close this help window, " ) ; 
-    &body( " and scroll using the scrollbar.)\n" ) ; 
-=pod    
-    &code( "[UP ARROW]" ) ; 
-    &body( " or " ) ; 
-    &code( "[DOWN ARROW]" ) ; 
-    &body( ", to scroll by line and " ) ; 
-    &code( "[PAGE UP]" ) ; 
-    &body( " or " ) ; 
-    &code( "[PAGE DOWN]" ) ; 
-    &body( ", to scroll by screen.)\n" ) ; 
-=cut    
+    &body( " and scroll using the scrollbar, arrow keys or " ) ;
+    &code( "<Page Up>" ) ;
+    &body( " or " ) ;
+    &code( "<Page Down>" ) ;
+    &body( ".)\n" ) ; 
 
     &heading( "\nAim\n\n", 'heading' ) ;
     &body(  
@@ -115,6 +115,7 @@ sub help {
     &body( "Snake may be used/distributed under the same terms as Perl.\n" ) ;
     &body( "\nI do not know who the inventor of Snake is." ) ;
 
+    $text->configure( -state => 'disabled' ) ;
     &main::window_centre( $HelpWin ) ;
 }
 

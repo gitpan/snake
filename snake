@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# $Id: snake,v 1.37 1999/02/21 19:44:34 root Exp root $
+# $Id: snake,v 1.38 1999/02/23 22:02:13 root Exp root $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
 # May be used/distributed under the same terms as Perl.
@@ -24,7 +24,7 @@ use vars qw( $VERSION
              $Win 
              %Buttons %Images %Board %Snake ) ; 
 
-$VERSION = '1.05' ; # Application version.
+$VERSION = '1.06' ; # Application version.
 
 my $DieOnWarn      = 1 ;
 my $WarnInDialogue = 0 ;
@@ -159,3 +159,42 @@ sub load_library {
 
 __END__
 
+
+=pod SCRIPT CATEGORIES
+
+Games
+
+=pod DESCRIPTION
+
+Perl/Tk Snake game - v. simple. 
+
+=pod PREREQUISITES
+
+Pragmas:
+
+C<strict>
+C<lib>
+
+Modules:
+
+C<Tk>
+C<Tk::MesgBox>
+C<FindBin>
+
+=pod COREQUISITES
+
+None.
+
+=pod OSNAMES
+
+Developed under:
+Linux/X-Windows
+
+Known to run under:
+Win32
+
+=pod LICENSE
+
+Same as Perl
+
+=cut

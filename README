@@ -1,4 +1,4 @@
-README for snake-1.05.tar.gz
+Snake
 
 1. SYNOPSIS
 2. REQUIREMENTS
@@ -17,13 +17,16 @@ the Help button or press F1.
 
 2. REQUIREMENTS
 
+You will need Tk::MesgBox.pm which is not included in the snake .tar.gz,
+but which is available from the same directory on CPAN. 
+
 Perl 5.004
 Tk 400.202
 Linux/X windows or Win32
 
 The game was developed under Debian GNU/Linux 2.0.
 
-55K disk space.
+~60K disk space.
 
 
 3. FILES
@@ -63,22 +66,22 @@ mkdir /usr/games
 mkdir /usr/games/snake
 
 # Copy the tar.gz to the game directory.
-cp snake-1.05.tar.gz /usr/games
+cp snake-VERSION.tar.gz /usr/games
 
 # Change to the games directory.
 cd /usr/games
 
 # Unpack the archive using method A or B:
 # Method A for those using GNU tar
-tar xvfz snake-1.05.tar.gz
+tar xvfz snake-VERSION.tar.gz
 # Method B for those not using GNU tar
-gunzip snake-1.05.tar.gz
-tar xvf snake-1.05.tar
+gunzip snake-VERSION.tar.gz
+tar xvf snake-VERSION.tar
 
 # Change to the snake directory.
 cd snake
 
-# Move the library file into the Tk directory.
+# Move the library file (obtained separately) into the Tk directory.
 # (The -u option ensures we don't overwrite newer with older.)
 # Note that you could move this to any Tk directory in any lib directory in
 # Perl's %INC path, or /usr/games/snake/Tk.
@@ -113,6 +116,7 @@ update-menus
 
 1999/02/23  Should now work under Windows.
 
+1999/03/18  Minor documentation changes to suit CPAN scripts area.
 
 6. COPYRIGHT
 

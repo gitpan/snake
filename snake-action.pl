@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# $Id: snake-action.pl,v 1.30 1999/01/31 12:26:36 root Exp $
+# $Id: snake-action.pl,v 1.31 1999/02/23 22:02:13 root Exp root $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
 # May be used/distributed under the same terms as Perl.
