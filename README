@@ -17,9 +17,6 @@ the Help button or press F1.
 
 2. REQUIREMENTS
 
-You will need Tk::MesgBox.pm which is not included in the snake .tar.gz,
-but which is available from the same directory on CPAN. 
-
 Perl 5.004
 Tk 400.202
 Linux/X windows or Win32
@@ -31,10 +28,13 @@ The game was developed under Debian GNU/Linux 2.0.
 
 3. FILES
 
+RCS
 README
+Tk/MesgBox.pm
 debian-menu
 snake
 snake-action.pl
+snake-board-commands.pl
 snake-board.pl
 snake-body.xpm
 snake-button-commands.pl
@@ -81,12 +81,6 @@ tar xvf snake-VERSION.tar
 # Change to the snake directory.
 cd snake
 
-# Move the library file (obtained separately) into the Tk directory.
-# (The -u option ensures we don't overwrite newer with older.)
-# Note that you could move this to any Tk directory in any lib directory in
-# Perl's %INC path, or /usr/games/snake/Tk.
-mv -u MesgBox.pm /usr/lib/perl5/Tk
-
 # Make sure snake is executable.
 chmod a+x snake
 
@@ -117,6 +111,8 @@ update-menus
 1999/02/23  Should now work under Windows.
 
 1999/03/18  Minor documentation changes to suit CPAN scripts area.
+
+1999/04/21  Added MesgBox.pm to .tar.gz.
 
 6. COPYRIGHT
 
