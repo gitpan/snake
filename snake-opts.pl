@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# $Id: snake-opts.pl,v 1.4 1999/08/08 15:50:14 root Exp root $
+# $Id: snake-opts.pl,v 1.4 1999/08/08 15:50:14 root Exp $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
 # May be used/distributed under the GPL.

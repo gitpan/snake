@@ -1,11 +1,10 @@
 #!/usr/bin/perl -w
 
-# $Id: snake,v 1.42 1999/08/08 15:50:14 root Exp root $
+# $Id: snake,v 1.43 1999/08/28 22:00:55 root Exp $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
 # May be used/distributed under the GPL.
 
-# TODO Fix the numerous detail bugs in the use interface...
 # TODO Tie $Status so that we can set $Board{STATUS} (the status bar)
 #      automatically whenever $Status changes.
 
@@ -24,7 +23,7 @@ use vars qw( $VERSION
              $Win 
              %Buttons %Images %Board %Snake ) ; 
 
-$VERSION = '1.10' ; # Application version.
+$VERSION = '1.11' ; # Application version.
 
 my $DieOnWarn      = 1 ;
 my $WarnInDialogue = 0 ;
@@ -72,6 +71,8 @@ sub initialise {
     &load_library( "snake-help.pl" ) ;
     &load_library( "snake-options.pl" ) ;
     &load_library( "snake-action.pl" ) ;
+
+    &load_library( "tk-text.pl" ) ;
 
     &window_centre( $Win ) ;
     &board::create ;

@@ -31,6 +31,7 @@ The game was developed under Debian GNU/Linux 2.0.
 README
 Tk/MesgBox.pm
 debian-menu
+tk-text.pl
 snake
 snake-action.pl
 snake-board-commands.pl
@@ -121,6 +122,9 @@ update-menus
             .snakerc to be more conventional.
 
 1999/08/08  Changed licence to GPL.
+
+1999/08/28  Changed help file to use my tk-text render_pod routine.
+
 
 6. COPYRIGHT
 

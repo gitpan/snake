@@ -1,0 +1,95 @@
+=head1 Petris Help
+
+# $Id: snake-help.pod,v 1.2 1999/08/28 22:14:22 root Exp $
+
+# Copyright (c) Mark Summerfield 1999. All Rights Reserved.
+# May be used/distributed under the GPL.
+
+Press <C<Escape>> or <C<q>> to close this help window; scroll using
+the scrollbar, arrow keys, <C<PageUp>> or <C<PageDown>>.
+
+=head2 Aim
+
+The aim of Snake is to eat the fruit and cover as much of the board as 
+possible with the snake's body. It is possible to cover the entire board.
+
+=head2 Play
+
+The game is played by moving the snake onto the food which appears at 
+random on the board. Once the snake moves onto a square with food, (eats 
+the food), new food will appear elsewhere on the board. If the snake 
+moves onto itself or hits the edge the game ends. Every time the snake 
+eats, its body grows one segment longer; this increases your score and 
+increases coverage of the board.
+
+=head2 Keystrokes
+
+=over
+
+=item *
+
+C<s>    Start a new game.
+
+=item
+
+C<SPACEBAR> Pause/resume the game.
+
+=item
+
+C<o>    Change the options.
+
+=item
+
+C<a>    Show the About box.
+
+=item
+
+C<F1>   Invoke this help window.
+
+=item
+
+C<q>    Quit the game.
+
+=item   
+
+C<UP-ARROW>, C<k>, C<f> Make the snake move up. (Resumes if paused.)
+
+=item
+
+C<DOWN-ARROW>, C<j>, C<b>   Make the snake move down. (Resumes if paused.)
+
+=item
+
+C<LEFT-ARROW>, C<h>, C<d>   Make the snake move left. (Resumes if paused.)
+
+=item
+
+C<RIGHT-ARROW>, C<l>, C<g>  Make the snake move right. (Resumes if paused.)
+
+=back
+
+To see other keystrokes, or to change or add your own, see the file
+C<snake-keys.pl>.
+
+=head2 Options
+
+Options should be set using the Options dialogue. User options are stored in
+C<~/.games/snakerc> (or C<SNAKE.INI> for Win32).
+
+Any options you change in this file take precedence over the default options.
+To reinstate a default option delete or comment out (with C<#>) the option(s)
+you wish to reinstate - the next time you run the game the defaults will be
+back.
+
+
+=head2 Copyright
+
+C<summer@chest.ac.uk>
+
+Copyright (c) Mark Summerfield 1999. All Rights Reserved.
+
+Snake may be used/distributed under the GPL.
+
+I do not know who the inventor of Snake is.
+
+=cut

@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# $Id: snake-keys.pl,v 1.13 1999/08/08 15:50:14 root Exp root $
+# $Id: snake-keys.pl,v 1.14 1999/08/28 22:00:55 root Exp $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
 # May be used/distributed under the GPL.
@@ -42,12 +42,16 @@ $Win->bind( '<q>',         \&button::quit ) ;
 
 $Win->bind( '<Up>',        \&action::move_up ) ;
 $Win->bind( '<k>',         \&action::move_up ) ;     # vi
+$Win->bind( '<f>',         \&action::move_up ) ;     # left handed
 $Win->bind( '<Down>',      \&action::move_down ) ;
 $Win->bind( '<j>',         \&action::move_down ) ;   # vi
+$Win->bind( '<b>',         \&action::move_down ) ;   # left handed
 $Win->bind( '<Left>',      \&action::move_left ) ;
 $Win->bind( '<h>',         \&action::move_left ) ;   # vi
+$Win->bind( '<d>',         \&action::move_left ) ;   # left handed
 $Win->bind( '<Right>',     \&action::move_right ) ;
 $Win->bind( '<l>',         \&action::move_right ) ;  # vi
+$Win->bind( '<g>',         \&action::move_right ) ;  # left handed
 
 
 1 ;

@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# $Id: snake-consts.pl,v 1.19 1999/08/08 15:50:14 root Exp root $
+# $Id: snake-consts.pl,v 1.20 1999/08/28 22:00:55 root Exp $
 
 # Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
 # May be used/distributed under the GPL.
@@ -47,5 +47,6 @@ $Const{SNAKE_BODY_COLOUR_DEF}       = 'green' ;
 $Const{SNAKE_HEAD_COLOUR_DEF}       = 'DarkGreen' ;
 $Const{FOOD_COLOUR_DEF}             = 'blue' ;
 
+$Const{HELP_FILE}                   = "$RealBin/snake-help.pod" ;
 
 1 ;
