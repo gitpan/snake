@@ -11,11 +11,15 @@ Snake
 
 1. SYNOPSIS
 
+Simple snake game.
+
 Snake is a simple game. On-line help is provided - start up the game and click
 the Help button or press F1. 
 
 
 2. REQUIREMENTS
+
+MesgBox.pm (available where you picked up snake)
 
 Perl 5.004
 Tk 400.202
@@ -29,7 +33,6 @@ The game was developed under Debian GNU/Linux 2.0.
 3. FILES
 
 README
-Tk/MesgBox.pm
 debian-menu
 tk-text.pl
 snake
@@ -124,6 +127,10 @@ update-menus
 1999/08/08  Changed licence to GPL.
 
 1999/08/28  Changed help file to use my tk-text render_pod routine.
+
+1999/09/06  Removed MesgBox.pm at Lupe Christoph's (CPAN) request. You must
+            pick this module up separately now (although old versions will
+            work fine if you've already got one).
 
 
 6. COPYRIGHT

@@ -13,7 +13,7 @@ require Tk::Toplevel ;
 
 use vars qw( $VERSION @ISA ) ;
 
-$VERSION = '1.07' ;
+$VERSION = '1.08' ;
 
 @ISA = qw( Tk::Toplevel ) ;
 
@@ -380,6 +380,8 @@ MesgBox does almost no error checking.
 1999/08/05  Just changed the files to make them more CPAN friendly.
 
 1999/08/08  Changed licence to LGPL.
+
+1999/09/06  Minor change to packaging for CPAN.
 
 =head1 AUTHOR
 
