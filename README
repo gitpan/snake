@@ -1,0 +1,134 @@
+README for snake-1.05.tar.gz
+
+1. SYNOPSIS
+2. REQUIREMENTS
+3. FILES
+4. INSTALLATION
+5. CHANGES
+6. COPYRIGHT
+7. NOTES
+
+
+1. SYNOPSIS
+
+Snake is a simple game. On-line help is provided - start up the game and click
+the Help button or press F1. 
+
+
+2. REQUIREMENTS
+
+Perl 5.004
+Tk 400.202
+Linux/X windows or Win32
+
+The game was developed under Debian GNU/Linux 2.0.
+
+55K disk space.
+
+
+3. FILES
+
+README
+debian-menu
+snake
+snake-action.pl
+snake-board.pl
+snake-body.xpm
+snake-button-commands.pl
+snake-buttons.pl
+snake-consts.pl
+snake-food-1.xpm
+snake-food-2.xpm
+snake-food-3.xpm
+snake-head.xpm
+snake-help.pl
+snake-icon-16x16.xpm
+snake-images.pl
+snake-keys.pl
+snake-options.pl
+snake-opts.pl
+
+Snake will create a directory in your home directory called '.games' and a
+file in that directory called 'snake-opts'. For Win32 it will create a file
+called 'SNAKE.INI' in the directory from which it is invoked.
+
+
+4. INSTALLATION
+
+Note that Snake can be installed pretty well anywhere - the only restriction
+is that all the snake* files must be together in the same directory.
+
+# Create the directories.
+mkdir /usr/games
+mkdir /usr/games/snake
+
+# Copy the tar.gz to the game directory.
+cp snake-1.05.tar.gz /usr/games
+
+# Change to the games directory.
+cd /usr/games
+
+# Unpack the archive using method A or B:
+# Method A for those using GNU tar
+tar xvfz snake-1.05.tar.gz
+# Method B for those not using GNU tar
+gunzip snake-1.05.tar.gz
+tar xvf snake-1.05.tar
+
+# Change to the snake directory.
+cd snake
+
+# Move the library file into the Tk directory.
+# (The -u option ensures we don't overwrite newer with older.)
+# Note that you could move this to any Tk directory in any lib directory in
+# Perl's %INC path, or /usr/games/snake/Tk.
+mv -u MesgBox.pm /usr/lib/perl5/Tk
+
+# Make sure snake is executable.
+chmod a+x snake
+
+# If you want snake to appear on your X menu do the following:
+cp debian-menu /etc/menu/snake
+update-menus
+
+# Note that the name of the file supplied, 'debian-menu', is changed in the
+# move to 'snake'. Note also that if you haven't used the paths given here you
+# must change the command path in /etc/menu/snake. The addition to the menu
+# will only appear when the window manager is restarted.
+
+# To run snake from the command line:
+/usr/games/snake/snake &
+
+# You could always either alias this or use a soft link to a directory on the
+# path to save typing the whole path. Note that 'deprecated' error messages
+# which appear are harmless and can be ignored.
+
+
+5. CHANGES
+
+1999/01/23  Modified options so that game doesn't have to exec itself if you
+            change the board size.
+
+1999/02/02  Made a little more Win32 'friendly'.
+
+1999/02/23  Should now work under Windows.
+
+
+6. COPYRIGHT
+
+Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
+Snake may be used/distributed under the same terms as Perl.
+
+Contact: <mark.summerfield@chest.ac.uk> - please include 'snake' in the
+subject line. 
+
+
+7. NOTES
+
+Snake was developed as a result of a long wait at Glasgow airport. Due to
+excessive boredom I discovered that my company-supplied mobile phone had a
+simple game on it called 'snake'. I actually liked the game and decided I'd
+rather play it on my PC than my phone. Using the same code-base I've also
+written a version of Tetris called Petris. I think that the code supplied here
+could be adapted to many other 'graph-paper' games.
+

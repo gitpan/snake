@@ -1,0 +1,161 @@
+#!/usr/bin/perl -w
+
+# $Id: snake,v 1.37 1999/02/21 19:44:34 root Exp root $
+
+# Copyright (c) Mark Summerfield 1998/9. All Rights Reserved.
+# May be used/distributed under the same terms as Perl.
+
+# TODO Fix the numerous detail bugs in the use interface...
+# TODO Tie $Status so that we can set $Board{STATUS} (the status bar)
+#      automatically whenever $Status changes.
+
+use strict ;
+
+use Tk ;
+use Tk::MesgBox ;
+
+use FindBin qw( $RealBin ) ;
+use lib $RealBin ;
+
+use vars qw( $VERSION 
+             $BOARD $SNAKE $FOOD
+             $RUNNING $PAUSED $NOTRUNNING
+             %Global %Const %Opt 
+             $Win 
+             %Buttons %Images %Board %Snake ) ; 
+
+$VERSION = '1.05' ; # Application version.
+
+my $DieOnWarn      = 1 ;
+my $WarnInDialogue = 0 ;
+
+
+&initialise ;
+
+MainLoop ;
+
+
+BEGIN {
+    $SIG{__WARN__} = sub {
+        if( $WarnInDialogue and defined $Win ) {
+            my $msg = $Win->MesgBox(
+                            -title => "Snake Warning",
+                            -text  => $_[0],
+                            -icon  => 'ERROR',
+                            ) ;
+            $msg->Show ;
+        }
+        else {
+            print STDOUT join( "\n", @_ ), "\n" ;
+        }
+    } ;
+}
+
+sub initialise {
+
+    $Global{WROTE_OPTS} = 0 ;
+
+    $Win = MainWindow->new() ;
+    $Win->title( "Snake" ) ; 
+
+    &load_library( "snake-consts.pl" ) ;
+    $Global{STATE} = $NOTRUNNING ;     # Need consts to set this.
+    &load_library( "snake-opts.pl" ) ; # Default.
+    &read_opts ;                       # User.
+    &set_consts ;                      # Need opts to set these.
+    &load_library( "snake-buttons.pl" ) ;
+    &load_library( "snake-button-commands.pl" ) ;
+    &load_library( "snake-board.pl" ) ;
+    &load_library( "snake-board-commands.pl" ) ;
+    &load_library( "snake-images.pl" ) ;
+    &load_library( "snake-keys.pl" ) ;
+    &load_library( "snake-help.pl" ) ;
+    &load_library( "snake-options.pl" ) ;
+    &load_library( "snake-action.pl" ) ;
+
+    &window_centre( $Win ) ;
+    &board::create ;
+    &button::start ;
+}
+
+
+sub window_centre {
+    my $win = shift ;
+
+    $win->update ;
+    my $x = int( ( $win->screenwidth  - $win->width  ) / 2 ) ;
+    my $y = int( ( $win->screenheight - ( $win->height - 20 ) ) / 2 ) ;
+    $win->geometry( "+$x+$y" ) ;
+}
+
+
+sub read_opts {
+
+    return unless -e $Const{OPTS_FILE} ;
+
+    if( open( IN, $Const{OPTS_FILE} ) ) {
+        local $_ ;
+        while( <IN> ) {
+            next if /^#/ or /^\s*$/ ;
+            chomp ;
+            my( $key, $val ) = /^([^\s:]+)\s*:\s*(.*)/ ;
+            $val = $1 if $val =~ /([^#]+)#/ ;
+            $val =~ s/\s+$// ;
+            $Opt{uc $key} = $val ;
+        }
+        close IN ;
+        &opts_check ;
+    }
+    else {
+        warn "Failed to read $Const{OPTS_FILE}: $!.\n" ;
+    }
+}
+
+sub write_opts {
+
+    # Create the games directory if it doesn't exist.
+    $Const{OPTS_FILE} =~ m{^(.*)/} ;
+    mkdir $1, 0666 unless -e $1 ;
+
+    if( open( OUT, ">$Const{OPTS_FILE}" ) ) {
+        local $_ ;
+        foreach ( sort keys %Opt ) {
+            print OUT "$_: $Opt{$_}\n" ;
+        }
+        close OUT ;
+    }
+    else {
+        warn "Failed to write $Const{OPTS_FILE}: $!.\n" ;
+    }
+}
+
+
+sub set_consts {
+
+    $Const{BOARD_SIDE_LENGTH}   = $Opt{BOARD_SQUARES} * $Opt{BOARD_SQUARE_LENGTH} ; 
+    $Const{BOARD_SQUARES_TOTAL} = $Opt{BOARD_SQUARES} * $Opt{BOARD_SQUARES} ; 
+    $Const{BOARD_OFFSET}        = 
+        int( ( $Opt{BOARD_SQUARE_LENGTH} - 
+               $Const{BOARD_SQUARE_LENGTH_MIN} ) / 2 ) + 1 ; 
+    $Const{BOARD_SQUARES_MAX_TOTAL} = $Const{BOARD_SQUARES_MAX} * 2 ; 
+}
+
+
+sub load_library {
+    my $file = shift ;
+    
+    unless( my $return = do "${file}" ) {
+        my $warned = 0 ;
+        warn "Failed to parse $file: $@.\n", 
+            $warned = 1 if $@ ;
+        warn "Failed to do $file: $!\n",     
+            $warned = 1 if not $warned and not defined $return ;
+        warn "Failed to run $file.\n",       
+            $warned = 1 if not $warned and $return ;
+        die "Failed to load $file.\n" if $DieOnWarn ;
+    }
+}
+
+
+__END__
+

@@ -1,0 +1,30 @@
+/* XPM */
+/* $Id: snake-food-2.xpm,v 1.2 1999/01/07 16:32:20 root Exp $ */
+/* Copyright (c) Mark Summerfield 1998/9. All Rights Reserved. */
+/* May be used/distributed under the same terms as Perl. */
+
+static char * snake_food_2_xpm[] = {
+"20 20 3 1",
+" 	c None",
+".	c #EFE413",
+"+	c #070705",
+"++                  ",
+"+++                 ",
+"++++                ",
+" +++                ",
+" +..+               ",
+"  +...+             ",
+"  +....+            ",
+"   +..+..+          ",
+"    +..+..+         ",
+"    +...+...+       ",
+"     +...+.....+    ",
+"      +.....+...+   ",
+"       +..+..+....+ ",
+"        +...+..+...+",
+"         +...+..+..+",
+"           +......+ ",
+"             ++++   ",
+"                    ",
+"                    ",
+"                    "};

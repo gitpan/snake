@@ -1,0 +1,2 @@
+?package(local.snake):needs="X11" section="Games/Board" \
+	title="Snake" command="/usr/games/snake/snake"
